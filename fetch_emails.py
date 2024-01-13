@@ -35,16 +35,3 @@ def list_messages(service, user_id):
     except Exception as error:
         print(f'An error occurred: {error}')
         return None
-
-# def main():
-#     service = gmail_authenticate()
-#     messages = list_messages(service, 'me')
-#     if not messages:
-#         print("No messages found.")
-#     else:
-#         print("Message IDs:")
-#         for message in messages[:10]:  # displaying only first 10 messages
-#             print(message['id'])
-
-# if __name__ == '__main__':
-#     main()
