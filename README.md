@@ -1,6 +1,6 @@
 **_DESCRIPTION_**
 This a basic gmail auth app, which authenticates with gmail api using gmail acoount and process the emails using python script
-
+overall demonstartion (drive link): https://drive.google.com/drive/folders/1deJ0rxPJEpNYZIt-Ni37zNUzKZ80b9EF?usp=sharing
 **Pulling code to local**
 git clone https://github.com/Krishna-05012000/GMAIL_API_processing.git
 
@@ -14,14 +14,15 @@ step 1 : Authentication
 step 2 : email storing in DB
 * Now in terminal it will ask for date (YYYY-MM-DD) for fetching emails after this date , to reduce longer process for reviewer to handle it with ease.
 * after giving date ,all the mails will be loaded to DB
-
+VIDEO explanation (google drive) : https://drive.google.com/file/d/19YVTqJyDOOy8iQFOsJkXIBo6oC4YZVan/view?usp=sharing
 **Processing email and applying rules**
 python rules_processor.py
 * run python rules_processor.py . Now u will get the list of rules tht u can use for processing email.
 * choose any rule number and it will ask to give any value. (u can use the example for giving values to a particular rule)
 * Then u can see the processing bar , along with the mails with mail ID that the action took place.
 * If u want to run for anyother rule u can run the command line again
-
+VIDEO explanation (google drive) : https://drive.google.com/file/d/1hc-hoq-p5zfq3dhTwrok07X0ZXTWH-AW/view?usp=drive_link
 **Testing**
 python -m unittest discover -s test
 * If u run the command line it will test certain functions with the mock test cases and will show the results of the test. Havent handelled all the possibilities just handled for certain scenarios
+VIDEO explanation (google drive) : https://drive.google.com/file/d/1E_dX_sbgeqvUAyruuVhChfRZShuTL6_B/view?usp=drive_link
