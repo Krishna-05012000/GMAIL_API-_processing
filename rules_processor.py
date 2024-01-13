@@ -107,15 +107,24 @@ def display_rules(rules):
         actions = ', '.join([action['action'] for action in rule['actions']])
         print(f"{i}. If {rule['overall_predicate']} of the following conditions are met: ---> for example : {conditions}, then **** {actions} ****.")
 
+
 def get_user_input_for_rule(rule):
     user_conditions = []
     for condition in rule['conditions']:
         value = input(f"Enter the value for {condition['field']} {condition['predicate']}: ")
         user_conditions.append({**condition, 'value': value})
 
-    user_actions = rule['actions'] 
+    user_actions = []
+    for action in rule['actions']:
+        if action['action'] == 'forward_to':
+            email_address = input("Enter the email address to forward to: ")
+            user_actions.append({'action': 'forward_to', 'email_address': email_address})
+        else:
+            user_actions.append(action)
 
     return {'conditions': user_conditions, 'overall_predicate': rule['overall_predicate'], 'actions': user_actions}
+
+
 
 def apply_rules(user_rule):
     conn = sqlite3.connect('emails.db')
@@ -129,22 +138,6 @@ def apply_rules(user_rule):
             for action in user_rule['actions']:
                 execute_action(email[1], action)
 
-# Load rules from JSON
-# with open('rules.json') as f:
-#     rules = json.load(f)
-
-# # Display rules for the user to choose
-# display_rules(rules)
-
-# # Ask the user to select a rule
-# rule_number = int(input("Enter the number of the rule you want to customize and apply: ")) - 1
-# selected_rule = rules[rule_number]
-
-# # Get user input for the values of the conditions for the selected rule
-# user_rule = get_user_input_for_rule(selected_rule)
-
-# # Apply the rule with user input
-# apply_rules(user_rule)
 
 if __name__ == '__main__':
     # Load rules from JSON
