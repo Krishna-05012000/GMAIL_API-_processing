@@ -1,0 +1,80 @@
+[
+    {
+        "conditions": [
+            {"field": "subject", "predicate": "contains", "value": "Important"},
+            {"field": "from", "predicate": "equals", "value": "boss@example.com"}
+        ],
+        "overall_predicate": "all",
+        "actions": [
+            {"action": "mark_as_read"}
+        ]
+    },
+    {
+        "conditions": [
+            {"field": "subject", "predicate": "contains", "value": "Meeting"}
+        ],
+        "overall_predicate": "any",
+        "actions": [
+            {"action": "mark_as_unread"}
+        ]
+    },
+    {
+        "conditions": [
+            {"field": "to", "predicate": "contains", "value": "team@example.com"}
+        ],
+        "overall_predicate": "all",
+        "actions": [
+            {"action": "mark_as_read"}
+        ]
+    },
+    {
+        "conditions": [
+            {"field": "date_received", "predicate": "before", "value": "2024-01-01"}
+        ],
+        "overall_predicate": "any",
+        "actions": [
+            {"action": "archive"}
+        ]
+    },
+    {
+        "conditions": [
+            {"field": "subject", "predicate": "contains", "value": "Urgent"},
+            {"field": "from", "predicate": "contains", "value": "@importantdomain.com"}
+        ],
+        "overall_predicate": "any",
+        "actions": [
+            {"action": "add_star"}
+        ] 
+    },
+    {
+        "conditions": [
+            {"field": "date_received", "predicate": "after", "value": "2023-01-01"}
+        ],
+        "overall_predicate": "any",
+        "actions": [
+            {"action": "mark_as_unread"}
+        ]
+    },
+    {
+        "conditions": [
+            {"field": "date_received", "predicate": "after", "value": "2023-01-01"},
+            {"field": "date_received", "predicate": "before", "value": "2023-12-31"}
+        ],
+        "overall_predicate": "all",
+        "actions": [
+            {"action": "add_star"}
+        ]
+    },
+    
+    {
+        "conditions": [
+            {"field": "from", "predicate": "equals", "value": "specific.sender@example.com"},
+            {"field": "subject", "predicate": "contains", "value": "keyword"}
+        ],
+        "overall_predicate": "all",
+        "actions": [
+            {"action": "forward_to", "email_address": "krishnasam619@gmail.com"}
+        ]
+    }
+]
+
